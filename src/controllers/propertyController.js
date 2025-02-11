@@ -43,7 +43,9 @@ export const createProperty = async (req, res) => {
 
   try {
     const hostExists = await prisma.user.findUnique({ where: { id: hostId } });
-    if (!hostExists) return res.status(404).json({ message: "Host not found" });
+    if (!hostExists) {
+      return res.status(404).json({ message: "Host not found" });
+    }
 
     const newProperty = await prisma.property.create({
       data: {
@@ -59,26 +61,9 @@ export const createProperty = async (req, res) => {
     return res.status(201).json(newProperty);
   } catch (err) {
     console.error("Error creating property:", err);
-    res.status(500).json({ message: "Server error" });
-  }
-};
-
-// Update a property
-export const updateProperty = async (req, res) => {
-  const { id } = req.params;
-  const { title, description, location, pricePerNight, maxGuestCount } =
-    req.body;
-
-  try {
-    const updatedProperty = await prisma.property.update({
-      where: { id },
-      data: { title, description, location, pricePerNight, maxGuestCount },
-    });
-
-    return res.status(200).json(updatedProperty);
-  } catch (err) {
-    console.error("Error updating property:", err);
-    res.status(500).json({ message: "Server error" });
+    res
+      .status(500)
+      .json({ message: "Failed to create property", error: err.message });
   }
 };
 
