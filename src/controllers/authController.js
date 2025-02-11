@@ -9,6 +9,7 @@ export const loginUser = async (req, res) => {
 
   try {
     const user = await prisma.user.findUnique({ where: { email } });
+
     if (!user || !bcrypt.compareSync(password, user.password)) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
@@ -19,6 +20,7 @@ export const loginUser = async (req, res) => {
 
     res.status(200).json({ token, user: { ...user, password: undefined } });
   } catch (error) {
+    console.error("Error logging in:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
