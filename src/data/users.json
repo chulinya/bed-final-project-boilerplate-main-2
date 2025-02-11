@@ -1,0 +1,20 @@
+[
+  {
+    "id": "a1234567-89ab-cdef-0123-456789abcdef",
+    "username": "jdoe",
+    "password": "password123",
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "phoneNumber": "123-456-7890",
+    "profilePicture": "https://example.com/jdoe-profile-pic.jpg"
+  },
+  {
+    "id": "b2345678-90cd-ef01-2345-6789abcdef01",
+    "username": "asimpson",
+    "password": "password234",
+    "name": "Anna Simpson",
+    "email": "annasimpson@example.com",
+    "phoneNumber": "123-456-7891",
+    "profilePicture": "https://example.com/asimpson-profile-pic.jpg"
+  }
+]
