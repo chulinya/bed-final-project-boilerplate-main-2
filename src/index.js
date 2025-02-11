@@ -5,8 +5,6 @@ import userRoutes from "./routes/userRoutes.js";
 import propertyRoutes from "./routes/propertyRoutes.js";
 import bookingRoutes from "./routes/bookingRoutes.js";
 import reviewRoutes from "./routes/reviewRoutes.js";
-import hostRoutes from "./routes/hostRoutes.js";
-import amenityRoutes from "./routes/amenityRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import logRequestDuration from "./middlewares/loggerMiddleware.js";
 import globalErrorHandler from "./middlewares/errorMiddleware.js";
@@ -24,8 +22,6 @@ app.use("/api/users", userRoutes);
 app.use("/api/properties", propertyRoutes);
 app.use("/api/bookings", bookingRoutes);
 app.use("/api/reviews", reviewRoutes);
-app.use("/api/hosts", hostRoutes);
-app.use("/api/amenities", amenityRoutes);
 app.use("/api/auth", authRoutes);
 
 // Error Handling

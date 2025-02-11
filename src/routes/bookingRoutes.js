@@ -1,9 +1,9 @@
 import express from "express";
-import { createBooking } from "../controllers/bookingController.js"; // Ensure controller functions are defined
+import { createBooking } from "../controllers/bookingController.js";
+import { authMiddleware } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
-// POST route for creating a booking
-router.post("/", createBooking); // Ensure createBooking is defined in the controller
+router.post("/", authMiddleware, createBooking);
 
 export default router;
